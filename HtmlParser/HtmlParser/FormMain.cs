@@ -2,28 +2,70 @@
 using HtmlParser.Core.Habra;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace HtmlParser
 {
     public partial class FormMain : Form
     {
         ParserWorker<string[]> parser;
+        List<ParserSettings> parserSettings = new List<ParserSettings>();
         public FormMain()
         {
             InitializeComponent();
-            parser = new ParserWorker<string[]>(
-                new HabraParser()
-                );
 
+            parser = new ParserWorker<string[]>(new Parser());
             parser.OnCompleted += Parser_OnCompleted;
             parser.OnNewData += Parser_OnNewData;
+
+            LoadXmlConfig();
+
+            cbSites.DataSource = parserSettings;
+            cbSites.DisplayMember = "SiteName";
+            cbSites.ValueMember = "BaseUrl";
+
+        }
+
+        private void LoadXmlConfig()
+        {
+            ParserSettings parserSettingsTemp = new ParserSettings(); 
+            XmlDocument xDoc = new XmlDocument();
+            xDoc.Load("Config.xml");
+            XmlElement xRoot = xDoc.DocumentElement;
+
+            foreach (XmlNode xnode in xRoot)
+            {
+                if (xnode.Attributes.Count > 0)
+                {
+                    XmlNode attr = xnode.Attributes.GetNamedItem("name");
+                    if (attr != null)
+                    {
+                        parserSettingsTemp.BaseUrl = attr.Value;
+                    }
+                }
+                foreach (XmlNode childNode in xnode.ChildNodes)
+                {
+                    if (childNode.Name == "prefix")
+                    {
+                        parserSettingsTemp.Prefix = childNode.InnerText;
+                    }
+                    if (childNode.Name == "siteName")
+                    {
+                        parserSettingsTemp.SiteName = childNode.InnerText;
+                    }
+                    if (childNode.Name == "desc")
+                    {
+                        parserSettingsTemp.Desc = childNode.InnerText;
+                    }
+                    if (childNode.Name == "className")
+                    {
+                        parserSettingsTemp.ClassName = childNode.InnerText;
+                    }
+                }
+                parserSettings.Add(parserSettingsTemp);
+            }
         }
 
         private void Parser_OnNewData(object arg1, string[] arg2)
@@ -38,7 +80,10 @@ namespace HtmlParser
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            parser.Settings = new HabraSettings((int)numStartPoint.Value, (int)numEndPoint.Value);
+
+            parser.Settings = (IParserSettings)cbSites.SelectedItem;
+            parser.Settings.StartPoint = (int)numStartPoint.Value;
+            parser.Settings.EndPoint = (int)numEndPoint.Value;
             parser.Start();
         }
 

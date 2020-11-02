@@ -35,6 +35,7 @@
             this.numEndPoint = new System.Windows.Forms.NumericUpDown();
             this.btnStart = new System.Windows.Forms.Button();
             this.btnAbort = new System.Windows.Forms.Button();
+            this.cbSites = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.numStartPoint)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numEndPoint)).BeginInit();
             this.SuspendLayout();
@@ -47,13 +48,13 @@
             this.listbTitles.FormattingEnabled = true;
             this.listbTitles.Location = new System.Drawing.Point(12, 16);
             this.listbTitles.Name = "listbTitles";
-            this.listbTitles.Size = new System.Drawing.Size(258, 420);
+            this.listbTitles.Size = new System.Drawing.Size(292, 420);
             this.listbTitles.TabIndex = 0;
             // 
             // numStartPoint
             // 
             this.numStartPoint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.numStartPoint.Location = new System.Drawing.Point(286, 19);
+            this.numStartPoint.Location = new System.Drawing.Point(320, 19);
             this.numStartPoint.Minimum = new decimal(new int[] {
             1,
             0,
@@ -72,7 +73,7 @@
             // 
             this.lbStartPoint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbStartPoint.AutoSize = true;
-            this.lbStartPoint.Location = new System.Drawing.Point(283, 3);
+            this.lbStartPoint.Location = new System.Drawing.Point(317, 3);
             this.lbStartPoint.Name = "lbStartPoint";
             this.lbStartPoint.Size = new System.Drawing.Size(56, 13);
             this.lbStartPoint.TabIndex = 3;
@@ -82,7 +83,7 @@
             // 
             this.lbEndPoint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbEndPoint.AutoSize = true;
-            this.lbEndPoint.Location = new System.Drawing.Point(283, 47);
+            this.lbEndPoint.Location = new System.Drawing.Point(317, 47);
             this.lbEndPoint.Name = "lbEndPoint";
             this.lbEndPoint.Size = new System.Drawing.Size(53, 13);
             this.lbEndPoint.TabIndex = 5;
@@ -91,7 +92,7 @@
             // numEndPoint
             // 
             this.numEndPoint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.numEndPoint.Location = new System.Drawing.Point(286, 63);
+            this.numEndPoint.Location = new System.Drawing.Point(320, 63);
             this.numEndPoint.Minimum = new decimal(new int[] {
             1,
             0,
@@ -109,7 +110,7 @@
             // btnStart
             // 
             this.btnStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnStart.Location = new System.Drawing.Point(286, 100);
+            this.btnStart.Location = new System.Drawing.Point(320, 100);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(120, 25);
             this.btnStart.TabIndex = 6;
@@ -120,7 +121,7 @@
             // btnAbort
             // 
             this.btnAbort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAbort.Location = new System.Drawing.Point(286, 131);
+            this.btnAbort.Location = new System.Drawing.Point(320, 131);
             this.btnAbort.Name = "btnAbort";
             this.btnAbort.Size = new System.Drawing.Size(120, 25);
             this.btnAbort.TabIndex = 7;
@@ -128,11 +129,21 @@
             this.btnAbort.UseVisualStyleBackColor = true;
             this.btnAbort.Click += new System.EventHandler(this.btnAbort_Click);
             // 
+            // cbSites
+            // 
+            this.cbSites.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbSites.FormattingEnabled = true;
+            this.cbSites.Location = new System.Drawing.Point(319, 162);
+            this.cbSites.Name = "cbSites";
+            this.cbSites.Size = new System.Drawing.Size(121, 21);
+            this.cbSites.TabIndex = 8;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 450);
+            this.ClientSize = new System.Drawing.Size(455, 450);
+            this.Controls.Add(this.cbSites);
             this.Controls.Add(this.btnAbort);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.lbEndPoint);
@@ -158,6 +169,7 @@
         private System.Windows.Forms.NumericUpDown numEndPoint;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnAbort;
+        private System.Windows.Forms.ComboBox cbSites;
     }
 }
 

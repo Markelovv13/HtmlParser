@@ -81,7 +81,7 @@ namespace HtmlParser.Core
 
                 var document = await domParser.ParseDocumentAsync(source);
 
-                var result = parser.Parse(document);
+                var result = parser.Parse(document, Settings.ClassName);
 
                 OnNewData?.Invoke(this, result);
             }

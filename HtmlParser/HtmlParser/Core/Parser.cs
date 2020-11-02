@@ -7,13 +7,12 @@ using System.Threading.Tasks;
 
 namespace HtmlParser.Core.Habra
 {
-    [Obsolete("Используется базовый класс Parser")]
-    class HabraParser : IParser<string[]>
+    class Parser : IParser<string[]>
     {
-        public string[] Parse(IHtmlDocument document, string className = "")
+        public string[] Parse(IHtmlDocument document, string className)
         {
             var list = new List<string>();
-            var items = document.QuerySelectorAll("a").Where(item => item.ClassName != null && item.ClassName.Contains("post__title_link"));
+            var items = document.QuerySelectorAll("a").Where(item => item.ClassName != null && item.ClassName.Contains(className));
 
             foreach (var item in items)
             {
