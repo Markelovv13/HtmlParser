@@ -9,7 +9,7 @@
 	</baseUrl>
 	<baseUrl name="https://proufu.ru/">
 		<siteName>Про Уфу</siteName>
-		<desc>Сайт с новостями Уфа говно</desc>
+		<desc>Сайт с новостями Уфа</desc>
 		<prefix>novosti.php?PAGEN_1={CurrentId}</prefix>
 		<className>news-name</className>
 		<querySelector>div</querySelector>
