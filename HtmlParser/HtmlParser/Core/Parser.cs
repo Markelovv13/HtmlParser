@@ -9,10 +9,10 @@ namespace HtmlParser.Core.Habra
 {
     class Parser : IParser<string[]>
     {
-        public string[] Parse(IHtmlDocument document, string className)
+        public string[] Parse(IHtmlDocument document, string className, string querySelector)
         {
             var list = new List<string>();
-            var items = document.QuerySelectorAll("a").Where(item => item.ClassName != null && item.ClassName.Contains(className));
+            var items = document.QuerySelectorAll(querySelector).Where(item => item.ClassName != null && item.ClassName.Contains(className));
 
             foreach (var item in items)
             {

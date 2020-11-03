@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<settings>
+	<baseUrl name="https://habr.com/ru/">
+		<siteName>Хабр</siteName>
+		<desc>Сайт с говном</desc>
+		<prefix>page{CurrentId}</prefix>
+		<className>post__title_link</className>
+		<querySelector>a</querySelector>
+	</baseUrl>
+	<baseUrl name="https://proufu.ru/">
+		<siteName>Про Уфу</siteName>
+		<desc>Сайт с говно новостями Уфы</desc>
+		<prefix>novosti.php?PAGEN_1={CurrentId}</prefix>
+		<className>news-name</className>
+		<querySelector>div</querySelector>
+	</baseUrl>
+	<baseUrl name="https://ufa1.ru/">
+		<siteName>Уфа1</siteName>
+		<desc>Сайт с говно новостями Уфы</desc>
+		<prefix></prefix>
+		<className>M3d3</className>
+		<querySelector>a</querySelector>
+	</baseUrl>	
+</settings>

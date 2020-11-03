@@ -13,6 +13,7 @@ namespace HtmlParser.Core
         public string SiteName { get; set; }
         public string Desc { get; set; }
         public string ClassName { get; set; }
+        public string QuerySelector { get; set; }
         public int StartPoint { get; set; }
         public int EndPoint { get; set; }
     }

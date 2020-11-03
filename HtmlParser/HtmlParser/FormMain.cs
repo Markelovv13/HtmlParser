@@ -30,13 +30,13 @@ namespace HtmlParser
 
         private void LoadXmlConfig()
         {
-            ParserSettings parserSettingsTemp = new ParserSettings(); 
             XmlDocument xDoc = new XmlDocument();
             xDoc.Load("Config.xml");
             XmlElement xRoot = xDoc.DocumentElement;
 
             foreach (XmlNode xnode in xRoot)
             {
+                ParserSettings parserSettingsTemp = new ParserSettings();
                 if (xnode.Attributes.Count > 0)
                 {
                     XmlNode attr = xnode.Attributes.GetNamedItem("name");
@@ -63,6 +63,10 @@ namespace HtmlParser
                     {
                         parserSettingsTemp.ClassName = childNode.InnerText;
                     }
+                    if (childNode.Name == "querySelector")
+                    {
+                        parserSettingsTemp.QuerySelector = childNode.InnerText;
+                    }                    
                 }
                 parserSettings.Add(parserSettingsTemp);
             }
@@ -80,7 +84,6 @@ namespace HtmlParser
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-
             parser.Settings = (IParserSettings)cbSites.SelectedItem;
             parser.Settings.StartPoint = (int)numStartPoint.Value;
             parser.Settings.EndPoint = (int)numEndPoint.Value;
